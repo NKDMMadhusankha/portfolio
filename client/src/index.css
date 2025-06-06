@@ -25,36 +25,39 @@
   --ring: 240 10% 3.9%;
   --radius: 0.5rem;
   
-  /* Custom portfolio colors */
+  /* Custom portfolio colors - Starry Sky Theme */
   --primary-900: 240 10% 6%; /* #0F0F0F */
   --primary-800: 240 8% 10%; /* #1A1A1A */
   --primary-700: 240 6% 15%; /* #262626 */
   --primary-50: 210 40% 98%; /* #F8FAFC */
-  --accent-500: 239 84% 67%; /* #6366F1 */
-  --accent-600: 243 75% 59%; /* #4F46E5 */
-  --accent-400: 244 58% 76%; /* #8B93FF */
+  --accent-500: 210 100% 56%; /* #0EA5E9 Sky Blue */
+  --accent-600: 212 100% 48%; /* #0284C7 Deeper Sky Blue */
+  --accent-400: 199 89% 48%; /* #0EA5E9 Light Sky Blue */
+  --star-gold: 45 93% 67%; /* #F59E0B Golden Star */
+  --night-blue: 221 39% 11%; /* #1E293B Deep Night */
+  --cosmic-purple: 250 91% 68%; /* #8B5CF6 Cosmic Accent */
 }
 
 .dark {
-  --background: 240 10% 6%; /* #0F0F0F */
-  --foreground: 0 0% 98%;
-  --muted: 240 8% 10%; /* #1A1A1A */
-  --muted-foreground: 240 5% 64.9%;
-  --popover: 240 10% 6%;
-  --popover-foreground: 0 0% 98%;
-  --card: 240 8% 10%; /* #1A1A1A */
-  --card-foreground: 0 0% 98%;
-  --border: 240 6% 15%; /* #262626 */
-  --input: 240 6% 15%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 8% 10%;
-  --secondary-foreground: 0 0% 98%;
-  --accent: 240 8% 10%;
-  --accent-foreground: 0 0% 98%;
+  --background: 221 39% 11%; /* #1E293B Night Sky */
+  --foreground: 210 40% 98%; /* #F8FAFC Star Light */
+  --muted: 215 28% 17%; /* #334155 */
+  --muted-foreground: 215 20% 65%; /* #94A3B8 */
+  --popover: 221 39% 11%;
+  --popover-foreground: 210 40% 98%;
+  --card: 215 28% 17%; /* #334155 */
+  --card-foreground: 210 40% 98%;
+  --border: 215 25% 27%; /* #475569 */
+  --input: 215 25% 27%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 221 39% 11%;
+  --secondary: 215 28% 17%;
+  --secondary-foreground: 210 40% 98%;
+  --accent: 215 28% 17%;
+  --accent-foreground: 210 40% 98%;
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --ring: 240 4.9% 83.9%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 215 20% 65%;
 }
 
 @layer base {
@@ -73,7 +76,14 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(to right, hsl(239 84% 67%), hsl(281 80% 60%));
+    background: linear-gradient(to right, hsl(210 100% 56%), hsl(45 93% 67%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-gradient-starry {
+    background: linear-gradient(135deg, hsl(210 100% 56%), hsl(45 93% 67%), hsl(210 100% 48%));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -105,8 +115,20 @@
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
-  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8); }
+  0%, 100% { box-shadow: 0 0 20px rgba(14, 165, 233, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(14, 165, 233, 0.8); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes shootingStar {
+  0% { transform: translateX(-100px) translateY(-100px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(300px) translateY(300px); opacity: 0; }
 }
 
 @keyframes particle {
