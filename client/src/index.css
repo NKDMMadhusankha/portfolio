@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 10% 3.9%;
+  --radius: 0.5rem;
+  
+  /* Custom portfolio colors */
+  --primary-900: 240 10% 6%; /* #0F0F0F */
+  --primary-800: 240 8% 10%; /* #1A1A1A */
+  --primary-700: 240 6% 15%; /* #262626 */
+  --primary-50: 210 40% 98%; /* #F8FAFC */
+  --accent-500: 239 84% 67%; /* #6366F1 */
+  --accent-600: 243 75% 59%; /* #4F46E5 */
+  --accent-400: 244 58% 76%; /* #8B93FF */
+}
+
+.dark {
+  --background: 240 10% 6%; /* #0F0F0F */
+  --foreground: 0 0% 98%;
+  --muted: 240 8% 10%; /* #1A1A1A */
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 6%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 8% 10%; /* #1A1A1A */
+  --card-foreground: 0 0% 98%;
+  --border: 240 6% 15%; /* #262626 */
+  --input: 240 6% 15%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 8% 10%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 8% 10%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-[Inter] antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-500 to-purple-500 bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent-500/20;
+  }
+  
+  .glow-on-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-accent-500/25;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8); }
+}
+
+@keyframes particle {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+.animate-slide-up { animation: slideUp 0.6s ease-out; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+.animate-particle { animation: particle 4s ease-in-out infinite; }
+.animate-spin-slow { animation: spin 3s linear infinite; }
