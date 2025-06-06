@@ -73,15 +73,18 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-accent-500 to-purple-500 bg-clip-text text-transparent;
+    background: linear-gradient(to right, hsl(239 84% 67%), hsl(281 80% 60%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent-500/20;
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
   }
   
   .glow-on-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:shadow-accent-500/25;
+    @apply transition-all duration-300 hover:shadow-lg;
   }
 }
 
