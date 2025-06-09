@@ -57,7 +57,7 @@ export function Loader({ onComplete }: LoaderProps) {
             transition={{ duration: 0.5 }}
             className="mb-5"
           >
-            <h3 className="text-2xl font-extrabold text-gray-200 font-serif tracking-widest glitch" data-text="MITHILA">MITHILA</h3>
+            <h3 className="text-1xl font-extrabold text-gray-200 font-serif tracking-widest glitch" data-text="MITHILA">MITHILA</h3>
           </motion.div>
         </div>
         
