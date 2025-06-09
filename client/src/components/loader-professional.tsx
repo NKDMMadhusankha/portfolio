@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import "../styles/glitch.css";
 
 interface LoaderProps {
   onComplete: () => void;
@@ -49,22 +48,20 @@ export function Loader({ onComplete }: LoaderProps) {
       className="fixed inset-0 z-50 flex items-center justify-center bg-black"
     >
       <div className="flex flex-col items-center">
-        {/* Clean logo presentation - moved down with increased bottom margin */}
-        <div className="mt-20">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-5"
-          >
-            <h3 className="text-2xl font-extrabold text-gray-200 font-serif tracking-widest glitch" data-text="MITHILA">MITHILA</h3>
-          </motion.div>
-        </div>
+        {/* Clean logo presentation */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <h1 className="text-4xl font-bold text-gray-200 font-mono tracking-wider">MITHILA</h1>
+        </motion.div>
         
         {/* Professional progress bar */}
         <div className="w-64">
           {/* Simple progress bar with indicator */}
-          <div className="mb-2 h-[2px] w-full bg-gray-900 rounded-full overflow-hidden">
+          <div className="mb-2 h-[3px] w-full bg-gray-900 rounded-full overflow-hidden">
             <motion.div
               className="h-full bg-gray-400"
               initial={{ width: 0 }}
@@ -74,8 +71,7 @@ export function Loader({ onComplete }: LoaderProps) {
           </div>
           
           {/* Simple percentage indicator */}
-          <div className="flex justify-between items-center">
-            <div className="text-gray-600 text-xs font-mono tracking-wider">LOADING</div>
+          <div className="flex justify-end">
             <div className="text-gray-500 text-xs font-mono">
               {progress}%
             </div>

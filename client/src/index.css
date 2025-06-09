@@ -146,3 +146,5 @@
 .animate-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
 .animate-particle { animation: particle 4s ease-in-out infinite; }
 .animate-spin-slow { animation: spin 3s linear infinite; }
+.animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+.animate-shooting-star { animation: shootingStar 3s ease-in-out infinite; }

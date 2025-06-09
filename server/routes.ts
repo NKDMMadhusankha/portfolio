@@ -38,17 +38,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // CV download endpoint
   app.get("/api/download-cv", (req, res) => {
-    // In a real application, you would serve the actual CV file
-    // For now, we'll create a placeholder response
     const cvPath = path.join(process.cwd(), "public", "cv.pdf");
-    
-    // Set appropriate headers for file download
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', 'attachment; filename=Mithila_Madhusankha_CV.pdf');
-    
-    // For demonstration, we'll send a simple text response
-    // In production, you would use res.sendFile(cvPath) with an actual PDF
-    res.status(200).send("CV download would be triggered here. Please add your actual CV file to public/cv.pdf");
+    res.sendFile(cvPath, (err) => {
+      if (err) {
+        res.status(404).send("CV file not found.");
+      }
+    });
   });
 
   const httpServer = createServer(app);

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { useTheme } from "@/hooks/use-theme";
 
 export function About() {
+  const { theme } = useTheme();
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className={`py-20 px-4 ${theme === "dark" ? "bg-black/60 text-white" : "bg-slate-100/60 text-gray-900"}`}>
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -23,24 +25,35 @@ export function About() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate Software Engineering undergraduate with a deep love for creating innovative digital solutions. 
-              My journey in technology began with curiosity and has evolved into a comprehensive understanding of modern development practices.
+            <p className={`text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed`}>
+              I'm a results-driven Software Engineer with a strong focus on delivering high-quality, 
+              user-centric solutions. Currently pursuing my BSc (Hons) in Software Engineering at 
+              NSBM Green University, I specialize in bridging the gap between development and design 
+              with keen attention to user experience and interface usability.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Currently pursuing my degree in Software Engineering, I focus on full-stack development, 
-              database design, and emerging technologies. I believe in writing clean, efficient code 
-              and creating user-centered applications that solve real-world problems.
+            <p className={`text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed`}>
+              My expertise spans full-stack development using the MERN stack, machine learning with 
+              Python and TensorFlow, and cloud technologies including AWS. I'm passionate about 
+              contributing to all phases of the software development lifecycle, writing clean, 
+              maintainable code, and building scalable systems that solve real-world problems.
+            </p>
+            <p className={`text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed`}>
+              Beyond coding, I'm a passionate musician with strong vocal, composition, and audio 
+              production skills. This creative background enhances my approach to software development, 
+              bringing innovation and attention to detail to every project I work on.
             </p>
             <div className="flex flex-wrap gap-4">
               <Badge variant="secondary" className="px-4 py-2 bg-accent-500/20 text-accent-400 hover:bg-accent-500/30">
-                Problem Solver
+                Full-Stack Developer
               </Badge>
               <Badge variant="secondary" className="px-4 py-2 bg-accent-500/20 text-accent-400 hover:bg-accent-500/30">
-                Team Player
+                AI/ML Enthusiast
               </Badge>
               <Badge variant="secondary" className="px-4 py-2 bg-accent-500/20 text-accent-400 hover:bg-accent-500/30">
-                Quick Learner
+                Creative Problem Solver
+              </Badge>
+              <Badge variant="secondary" className="px-4 py-2 bg-accent-500/20 text-accent-400 hover:bg-accent-500/30">
+                Musician & Producer
               </Badge>
             </div>
           </motion.div>
