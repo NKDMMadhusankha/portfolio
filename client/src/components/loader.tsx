@@ -49,15 +49,21 @@ export function Loader({ onComplete }: LoaderProps) {
       className="fixed inset-0 z-50 flex items-center justify-center bg-black"
     >
       <div className="flex flex-col items-center">
-        {/* Clean logo presentation - moved down with increased bottom margin */}
-        <div className="mt-20">
+        {/* Logo presentation */}
+        <div>
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-5"
+            className="mb-2"
           >
-            <h3 className="text-1xl font-extrabold text-gray-200 font-serif tracking-widest glitch" data-text="MITHILA">MITHILA</h3>
+            <h3
+              className="text-1xl font-extrabold text-gray-200 tracking-widest glitch"
+              data-text="MITHILA"
+              style={{ fontFamily: "'Roboto Mono', 'Space Mono', 'Consolas', monospace", letterSpacing: "0.35em", fontWeight: 600 }}
+            >
+              MITHILA
+            </h3>
           </motion.div>
         </div>
         
