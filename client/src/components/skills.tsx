@@ -119,7 +119,7 @@ export function Skills() {
           viewport={{ once: true }}
           className="text-4xl font-bold text-center mb-5 font-['Roboto_Mono',monospace] max-w-6xl mx-auto"
         >
-          <span className="text-white font-['Roboto_Mono',monospace]">Technical Skills</span>
+          <span className={`${theme === "dark" ? "text-white" : "text-gray-900"} font-['Roboto_Mono',monospace]`}>Technical Skills</span>
         </motion.h2>
         
         <div 
@@ -142,10 +142,10 @@ export function Skills() {
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Card className="card-hover bg-card border-border hover:border-accent-500 transition-all duration-300">
+                  <Card className={`card-hover bg-card border-border hover:border-accent-500 transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
                     <CardContent className="p-3 text-center">
                       <skill.icon className={`text-2xl ${skill.color} mb-1 mx-auto`} />
-                      <p className="font-semibold text-xs text-foreground">{skill.name}</p>
+                      <p className={`font-semibold text-xs ${theme === "light" ? "text-slate-800" : "text-foreground"}`}>{skill.name}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -168,10 +168,10 @@ export function Skills() {
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Card className="card-hover bg-card border-border hover:border-accent-500 transition-all duration-300">
+                  <Card className={`card-hover bg-card border-border hover:border-accent-500 transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
                     <CardContent className="p-3 text-center">
                       <skill.icon className={`text-2xl ${skill.color} mb-1 mx-auto`} />
-                      <p className="font-semibold text-xs text-foreground">{skill.name}</p>
+                      <p className={`font-semibold text-xs ${theme === "light" ? "text-slate-800" : "text-foreground"}`}>{skill.name}</p>
                     </CardContent>
                   </Card>
                 </motion.div>

@@ -16,7 +16,7 @@ export function About() {
           viewport={{ once: true }}
           className="text-4xl font-bold text-left mb-5 font-['Roboto_Mono',monospace]"
         >
-          <span className="text-white font-['Roboto_Mono',monospace]">About Me</span>
+          <span className={`${theme === "dark" ? "text-white" : "text-gray-900"} font-['Roboto_Mono',monospace]`}>About Me</span>
         </motion.h2>
         <div className="grid md:grid-cols-2 gap-12 items-center font-['Roboto_Mono',monospace]">
           <motion.div
@@ -51,7 +51,7 @@ export function About() {
             viewport={{ once: true }}
             className="relative font-['Roboto_Mono',monospace]"
           >
-            <div className="grid grid-cols-3 gap-2 h-[450px]">
+            <div className="grid grid-cols-2 gap-4 h-[450px]">
               {/* Left column */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export function About() {
                 />
               </motion.div>
               
-              {/* Middle column - positioned lower */}
+              {/* Right column - positioned lower */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -78,21 +78,6 @@ export function About() {
                 <img
                   src="images/img2.jpeg"
                   alt="Creative workspace"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-              
-              {/* Right column */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.7 }}
-                viewport={{ once: true }}
-                className="col-span-1 h-full rounded-xl overflow-hidden shadow-lg"
-              >
-                <img
-                  src="images/img7.jpeg"
-                  alt="Team collaboration"
                   className="w-full h-full object-cover"
                 />
               </motion.div>

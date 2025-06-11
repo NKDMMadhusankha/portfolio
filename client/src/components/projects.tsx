@@ -67,7 +67,7 @@ export function Projects() {
 					viewport={{ once: true }}
 					className="text-4xl font-bold text-center mb-16"
 				>
-					<span className="text-white">Featured Projects</span>
+					<span className={`${theme === "dark" ? "text-white" : "text-black"}`}>Featured Projects</span>
 				</motion.h2>
 
 				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">

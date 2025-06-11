@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { SiGoogle, SiReact, SiUdemy } from "react-icons/si";
 import { Card, CardContent } from "@/components/ui/card";
+import { useTheme } from "@/hooks/use-theme";
 
 const certifications = [
   {
@@ -30,17 +31,19 @@ const certifications = [
 ];
 
 export function Certifications() {
+  const { theme } = useTheme();
+  
   return (
-    <section id="certifications" className="py-20 px-4 bg-muted/50">
+    <section id="certifications" className={`py-20 px-4 ${theme === "dark" ? "bg-black/60 text-white" : "bg-slate-100/60 text-gray-900"} font-['Roboto_Mono',monospace]`}>
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-16"
+          className="text-4xl font-bold text-center mb-16 font-['Roboto_Mono',monospace] max-w-6xl mx-auto"
         >
-          <span className="text-gradient">Certifications</span>
+          <span className={`${theme === "dark" ? "text-white" : "text-gray-900"} font-['Roboto_Mono',monospace]`}>Certifications</span>
         </motion.h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
