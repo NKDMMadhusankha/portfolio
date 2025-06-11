@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Mail } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 import { useEffect, useState } from "react";
@@ -18,7 +18,32 @@ export function Hero() {
     floatDuration?: number;
   }[]>([]);
   const [shootingStars, setShootingStars] = useState<{ id: number; x: number; y: number; delay: number; rotation: number }[]>([]);
+  const [currentProfessionIndex, setCurrentProfessionIndex] = useState(0);
   
+  const professions = [
+    "Software Engineer",
+    "Full-Stack Developer",
+    "UI/UX Engineer",
+    "Frontend Developer",
+    "Backend Developer",
+    "MERN Stack Developer",
+    "Machine Learning Enthusiast",
+    "Creative Technologist",
+    "Web Application Developer",
+    "Cloud-Ready Developer",
+    "Problem Solver",
+  ];
+  
+  useEffect(() => {
+    const professionInterval = setInterval(() => {
+      setCurrentProfessionIndex(prevIndex => 
+        prevIndex === professions.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change profession every 3 seconds
+    
+    return () => clearInterval(professionInterval);
+  }, []);
+
   useEffect(() => {
     // Create random stars with an even lower count
     const starCount = 20; // Further reduced count
@@ -93,6 +118,14 @@ export function Hero() {
     document.body.removeChild(link);
   };
 
+  const socialLinks = [
+    { icon: <Github className="h-5 w-5" />, url: "https://github.com/NKDMMadhusankha", label: "GitHub" },
+    { icon: <Linkedin className="h-5 w-5" />, url: "http://www.linkedin.com/in/mithila-madhusankha", label: "LinkedIn" },
+    { icon: <Twitter className="h-5 w-5" />, url: "https://x.com/madhusankha_", label: "Twitter" },
+    { icon: <Instagram className="h-5 w-5" />, url: "https://www.instagram.com/mithila_madhusankha/", label: "Instagram" },
+    { icon: <Facebook className="h-5 w-5" />, url: "https://www.facebook.com/mithila.madushanka.37/", label: "Facebook" },
+  ];
+
   return (
     <section id="home" className={`min-h-screen flex items-center justify-center px-4 pt-16 relative overflow-hidden ${theme === "dark" ? "bg-black/60" : "bg-slate-100/60"}`}>
       {/* Stars background */}
@@ -156,14 +189,20 @@ export function Hero() {
             </span>
           </motion.h1>
           
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-8"
+          <motion.div
+            className="text-xl md:text-2xl text-muted-foreground mb-8 h-8"
           >
-            Software Engineering Undergraduate
-          </motion.p>
+            <motion.p
+              key={currentProfessionIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block"
+            >
+              {professions[currentProfessionIndex]}
+            </motion.p>
+          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -194,6 +233,33 @@ export function Hero() {
               <Mail className="mr-2 h-4 w-4" />
               Contact Me
             </Button>
+          </motion.div>
+          
+          {/* Social Media Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex justify-center mt-8 gap-4"
+          >
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className={`p-2 rounded-full transition-colors ${
+                  theme === "dark" 
+                    ? "text-gray-400 hover:text-white hover:bg-gray-800" 
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+                }`}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
           </motion.div>
         </motion.div>
       </div>
