@@ -17,7 +17,7 @@ export function Education() {
     "Mobile Application Development",
     "Cloud Computing", 
     "Software Testing & QA"
-  ];
+    ];
 
   return (
     <section 
