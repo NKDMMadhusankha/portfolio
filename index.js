@@ -68,7 +68,7 @@ var vite_config_default = defineConfig({
       "@assets": path2.resolve(import.meta.dirname, "attached_assets")
     }
   },
-  base: "/portfolio-/",
+  base: "/portfolio/",
   // Set to your actual repo name
   build: {
     outDir: path2.resolve(import.meta.dirname, "dist"),
