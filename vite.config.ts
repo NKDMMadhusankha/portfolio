@@ -23,8 +23,7 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
-  base: '/portfolio-/', // Set to your actual repo name
+  base: '/portfolio/', // Set to your actual repo name
   build: {
     outDir: path.resolve(import.meta.dirname, 'dist'), // Output to dist, not dist/public
     emptyOutDir: true,
