@@ -24,9 +24,9 @@ export default defineConfig({
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
-  base: '/repo/',
+  base: '/portfolio-/', // Set to your actual repo name
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, 'dist'), // Output to dist, not dist/public
     emptyOutDir: true,
   },
   server: {
