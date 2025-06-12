@@ -52,12 +52,6 @@ This is a modern, full-stack portfolio website for Mithila Madhusankha, a Softwa
 - Update your personal information in `portfolio.config.toml` and relevant React components in `client/src/components/`.
 - Replace images in `client/images/` and update project/skills data as needed.
 
-## License
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Deployed Demo:** _Add your live site link here_
 
 **Contact:** mithila.madhusankha@email.com
