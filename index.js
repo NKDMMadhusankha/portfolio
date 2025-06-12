@@ -69,9 +69,11 @@ var vite_config_default = defineConfig({
     }
   },
   root: path2.resolve(import.meta.dirname, "client"),
-  base: "/repo/",
+  base: "/portfolio-/",
+  // Set to your actual repo name
   build: {
-    outDir: path2.resolve(import.meta.dirname, "dist/public"),
+    outDir: path2.resolve(import.meta.dirname, "dist"),
+    // Output to dist, not dist/public
     emptyOutDir: true
   },
   server: {
