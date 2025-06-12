@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 
 export function Education() {
+  const { theme } = useTheme();
   const coreModules = [
     "Data Structures & Algorithms",
     "Software Engineering Principles", 
@@ -18,16 +20,19 @@ export function Education() {
   ];
 
   return (
-    <section id="education" className="py-20 px-4">
+    <section 
+      id="education" 
+      className={`py-20 px-4 ${theme === "dark" ? "bg-black/60 text-white" : "bg-slate-100/60 text-gray-900"} font-['Roboto_Mono',monospace] overflow-hidden`}
+    >
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-16"
+          className="text-4xl font-bold text-center mb-16 font-['Roboto_Mono',monospace]"
         >
-          <span className="text-gradient">Education</span>
+          <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>Education</span>
         </motion.h2>
         
         <div className="max-w-4xl mx-auto">
