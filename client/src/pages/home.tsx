@@ -8,6 +8,7 @@ import { Projects } from "@/components/projects";
 import { Certifications } from "@/components/certifications";
 import { Education } from "@/components/education";
 import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,15 +31,7 @@ export default function Home() {
           <Certifications />
           <Education />
           <Contact />
-          
-          {/* Footer */}
-          <footer className="py-8 px-4 border-t border-border">
-            <div className="max-w-6xl mx-auto text-center">
-              <p className="text-muted-foreground">
-                © 2024 Mithila Madhusankha. Crafted with passion and precision.
-              </p>
-            </div>
-          </footer>
+          <Footer />
         </div>
       )}
     </>
