@@ -107,8 +107,7 @@ export function Projects() {
 							className="flex"
 						>
 							<Card className={`card ${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[320px] md:h-[540px] min-w-0 min-h-0`}>
-								<div className="flex flex-row md:flex-col items-stretch h-full">
-									<div className="w-1/3 md:w-full flex-shrink-0 h-full md:h-72 flex items-center justify-center min-w-0 min-h-0">
+								<div className="flex flex-row md:flex-col items-stretch h-full">									<div className="w-1/3 md:w-full flex-shrink-0 h-full md:h-72 flex items-center justify-center min-w-0 min-h-0">
 										<button
 											type="button"
 											onClick={() => setModalImage(project.image)}
@@ -118,10 +117,10 @@ export function Projects() {
 												src={project.image}
 												alt={project.title}
 												className="w-full h-full object-cover transform-none cursor-pointer rounded-md max-h-40 md:max-h-full min-w-0 min-h-0"
+												style={{ objectPosition: "center" }}
 											/>
 										</button>
-									</div>
-									<CardContent className="p-2 md:p-4 flex flex-col justify-between w-2/3 md:w-full flex-grow min-w-0 min-h-0">
+									</div>									<CardContent className="p-2 md:p-4 flex flex-col justify-between w-2/3 md:w-full flex-grow min-w-0 min-h-0">
 										<div>
 											<h3 className="text-xs md:text-base font-bold mb-1 md:mb-2 text-foreground">
 												{project.title}
@@ -129,7 +128,7 @@ export function Projects() {
 											<p className={`${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} mb-1 md:mb-3 leading-relaxed text-xs line-clamp-2 md:line-clamp-3`}>
 												{project.description}
 											</p>
-											<div className="flex flex-wrap gap-1 mb-1 md:mb-2">
+											<div className="flex flex-wrap gap-1 mb-1 md:mb-2 mt-1">
 												{project.technologies.map((tech, techIndex) => (
 													<motion.div
 														key={tech}
@@ -155,9 +154,8 @@ export function Projects() {
 													</motion.div>
 												))}
 											</div>
-										</div>
-										<motion.div 
-											className="flex gap-2 mt-2 md:mt-4 md:mb-2 w-full justify-start flex-col sm:flex-row"
+										</div>										<motion.div 
+											className="flex gap-2 mt-1 md:mt-4 md:mb-2 w-full justify-start flex-col sm:flex-row"
 											initial={{ opacity: 0, y: 10 }}
 											whileInView={{ opacity: 1, y: 0 }}
 											transition={{ 
@@ -274,13 +272,32 @@ export function Projects() {
 				    min-width: 0 !important;
 				  }
 				  .max-h-40 {
-				    max-height: 120px !important;
+				    max-height: 100% !important;
 				  }
 				  .md\:h-72 {
-				    height: 120px !important;
+				    height: 100% !important;
 				  }
 				  .flex-col.sm\:flex-row {
 				    flex-direction: column !important;
+				  }
+				  /* Fix buttons positioning and image fitting */
+				  .CardContent {
+				    padding-bottom: 0.5rem !important;
+				  }
+				  .flex.gap-2.mt-2 {
+				    margin-top: 0 !important;
+				    position: relative !important;
+				    bottom: 0 !important;
+				  }
+				  .w-1\/3 img {
+				    object-fit: cover !important;
+				    width: 100% !important;
+				    height: 100% !important;
+				  }
+				  .line-clamp-2 {
+				    -webkit-line-clamp: 2 !important;
+				    max-height: 3.2rem !important;
+				    overflow: hidden !important;
 				  }
 				}
 				`
