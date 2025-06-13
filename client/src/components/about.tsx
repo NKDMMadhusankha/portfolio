@@ -28,19 +28,19 @@ export function About() {
             viewport={{ once: true }}
             className="space-y-8 font-['Roboto_Mono',monospace]"
           >
-            <p className={`text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed font-['Roboto_Mono',monospace]`}>
+            <p className={`about-mobile-center text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed font-['Roboto_Mono',monospace]`}>
               I'm a results-driven Software Engineer with a strong focus on delivering high-quality, 
               user-centric solutions. Currently pursuing my BSc (Hons) in Software Engineering at 
               NSBM Green University, I specialize in bridging the gap between development and design 
               with keen attention to user experience and interface usability.
             </p>
-            <p className={`text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed font-['Roboto_Mono',monospace]`}>
+            <p className={`about-mobile-center text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed font-['Roboto_Mono',monospace]`}>
               My expertise spans full-stack development using the MERN stack, machine learning with 
               Python and TensorFlow, and cloud technologies including AWS. I'm passionate about 
               contributing to all phases of the software development lifecycle, writing clean, 
               maintainable code, and building scalable systems that solve real-world problems.
             </p>
-            <p className={`text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed font-['Roboto_Mono',monospace]`}>
+            <p className={`about-mobile-center text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed font-['Roboto_Mono',monospace]`}>
               Beyond coding, I'm a passionate musician with strong vocal, composition, and audio 
               production skills. This creative background enhances my approach to software development, 
               bringing innovation and attention to detail to every project I work on.
@@ -95,6 +95,9 @@ export function About() {
             .about-title {
               text-align: center !important;
               width: 100% !important;
+            }
+            .about-mobile-center {
+              text-align: center !important;
             }
           }
         `
