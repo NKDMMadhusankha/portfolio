@@ -106,9 +106,9 @@ export function Projects() {
 							transition={{ delay: index * 0.2 }}
 							className="flex"
 						>
-							<Card className={`card ${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[220px] md:h-[540px]`}>
+							<Card className={`card ${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[320px] md:h-[540px] min-w-0 min-h-0`}>
 								<div className="flex flex-row md:flex-col items-stretch h-full">
-									<div className="w-1/3 md:w-full flex-shrink-0 h-full md:h-72 flex items-center justify-center">
+									<div className="w-1/3 md:w-full flex-shrink-0 h-full md:h-72 flex items-center justify-center min-w-0 min-h-0">
 										<button
 											type="button"
 											onClick={() => setModalImage(project.image)}
@@ -117,11 +117,11 @@ export function Projects() {
 											<img
 												src={project.image}
 												alt={project.title}
-												className="w-full h-full object-cover transform-none cursor-pointer"
+												className="w-full h-full object-cover transform-none cursor-pointer rounded-md max-h-40 md:max-h-full min-w-0 min-h-0"
 											/>
 										</button>
 									</div>
-									<CardContent className="p-2 md:p-4 flex flex-col justify-between w-2/3 md:w-full flex-grow">
+									<CardContent className="p-2 md:p-4 flex flex-col justify-between w-2/3 md:w-full flex-grow min-w-0 min-h-0">
 										<div>
 											<h3 className="text-xs md:text-base font-bold mb-1 md:mb-2 text-foreground">
 												{project.title}
@@ -233,46 +233,53 @@ export function Projects() {
 				.animate-fadeInScale {
 				  animation: fadeInScale 0.35s cubic-bezier(0.4,0,0.2,1);
 				}
-				
-				/* Mobile-specific styles for width adjustment */
 				@media only screen and (max-width: 767px) {
 				  .grid {
-				    padding: 0 2%;
+				    padding: 0 1%;
 				  }
 				  .card {
-				    width: 98% !important;
+				    width: 99% !important;
 				    margin-left: auto !important;
 				    margin-right: auto !important;
-				    height: 280px !important;
+				    height: 340px !important;
+				    min-width: 0 !important;
+				    min-height: 0 !important;
 				  }
-				  
-				  /* Make title and description text bigger on mobile */
 				  h3.text-xs {
 				    font-size: 1.2rem !important;
 				    line-height: 1.5 !important;
 				    margin-bottom: 0.5rem !important;
 				  }
-				  
 				  p.text-xs {
 				    font-size: 1rem !important;
 				    line-height: 1.6 !important;
 				    margin-bottom: 0.5rem !important;
 				  }
-				  
-				  /* Make tech badges more readable */
 				  .text-xs.px-1 {
 				    font-size: 0.8rem !important;
 				    padding: 0.15rem 0.4rem !important;
 				  }
-				  
-				  /* Increase button text size */
 				  button .text-[10px], a .text-[10px] {
 				    font-size: 0.8rem !important;
 				  }
-				  
-				  /* Add more space for content */
-				  .h-[220px] {
-				    height: 280px !important;
+				  .h-[220px], .h-[320px] {
+				    height: 340px !important;
+				  }
+				  .w-1\/3 {
+				    width: 45% !important;
+				    min-width: 0 !important;
+				  }
+				  .w-full {
+				    min-width: 0 !important;
+				  }
+				  .max-h-40 {
+				    max-height: 120px !important;
+				  }
+				  .md\:h-72 {
+				    height: 120px !important;
+				  }
+				  .flex-col.sm\:flex-row {
+				    flex-direction: column !important;
 				  }
 				}
 				`
