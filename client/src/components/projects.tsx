@@ -5,13 +5,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 import { useState } from "react";
+import harmonixImg from "@/../images/harmonix.png";
+import booknestImg from "@/../images/booknest.png";
+import greencartImg from "@/../images/greencart.png";
+import stylespaceImg from "@/../images/stylespace.png";
 
 const projects = [
 	{
 		title: "Harmonix",
 		description:
 			"Music collaboration platform for artists to create, share, and remix tracks together in real-time.",
-		image: "/images/harmonix.png",
+		image: harmonixImg,
 		technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Python", "Machine Learning"],
 		liveUrl: "#",
 		githubUrl: "https://github.com/NKDMMadhusankha/HarmoniX.git",
@@ -20,7 +24,7 @@ const projects = [
 		title: "Book Nest",
 		description:
 			"Online platform for discovering, reviewing, and sharing books with a vibrant community of readers.",
-		image: "/images/booknest.png",
+		image: booknestImg,
 		technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Material UI","Socket.io"],
 		liveUrl: "#",
 		githubUrl: "https://github.com/NKDMMadhusankha/BookNest.git",
@@ -29,7 +33,7 @@ const projects = [
 		title: "GreenCart",
 		description:
 			"Eco-friendly e-commerce platform for sustainable products, featuring a seamless shopping experience and green initiatives.",
-		image: "/images/greencart.png",
+		image: greencartImg,
 		technologies: ["Java", "Swing", "JSP", "Servlets", "MySQL", "PayPal API"],
 
 		liveUrl: "#",
@@ -39,7 +43,7 @@ const projects = [
 		title: "StyleSpace",
 		description:
 			"AI-powered virtual fitting room that lets users try on outfits and accessories in real-time using augmented reality.",
-		image: "/images/stylespace.png",
+		image: stylespaceImg,
 		technologies: ["React.js", "TensorFlow.js", "Three.js", "Node.js", "AR.js"],
 		liveUrl: "#",
 		githubUrl: "https://github.com/NKDMMadhusankha/HCI_project.git",

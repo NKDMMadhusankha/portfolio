@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
+import img1 from "@/../images/img1.jpeg";
+import img2 from "@/../images/img2.jpeg";
 
 export function About() {
   const { theme } = useTheme();
@@ -61,7 +63,7 @@ export function About() {
                 className="col-span-1 h-full rounded-xl overflow-hidden shadow-lg"
               >
                 <img
-                  src="images/img1.jpeg"
+                  src={img1}
                   alt="Modern developer workspace"
                   className="w-full h-full object-cover"
                 />
@@ -76,7 +78,7 @@ export function About() {
                 className="col-span-1 h-full rounded-xl overflow-hidden shadow-lg mt-16"
               >
                 <img
-                  src="images/img2.jpeg"
+                  src={img2}
                   alt="Creative workspace"
                   className="w-full h-full object-cover"
                 />
