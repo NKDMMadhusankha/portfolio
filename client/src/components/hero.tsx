@@ -89,7 +89,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
-              href="/cv.pdf"
+              href={`${import.meta.env.BASE_URL}cv.pdf`}
               download="Mithila_Madhusankha_CV.pdf"
               className={`px-8 py-3 flex items-center justify-center no-underline rounded-md font-semibold transition-all duration-300 ${
                 theme === "dark"
