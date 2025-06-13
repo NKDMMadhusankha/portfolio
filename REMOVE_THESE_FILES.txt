@@ -1,0 +1,10 @@
+Remove these unnecessary CV files:
+- d:\PRO\portfolio\cv.pdf
+- d:\PRO\portfolio\client\cv.pdf
+- d:\PRO\portfolio\client\public\cv.pdf
+- d:\PRO\portfolio\public\cv.pdf
+
+Keep only:
+- d:\PRO\portfolio\docs\cv.pdf
+
+Make sure the download button points to `/cv.pdf` (which will resolve to the correct file on GitHub Pages).
