@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Mail, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Github, Linkedin, Send, MessageCircle } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -69,73 +69,100 @@ export function Contact() {
   const contactLinks = [
     {
       icon: Mail,
-      label: "mithila.madhusankha@email.com",
-      href: "mailto:mithila.madhusankha@email.com",
+      label: "mithilamadhusankha@gmail.com",
+      href: "mailto:mithilamadhusankha@email.com",
       color: "text-red-500",
     },
     {
       icon: Github,
-      label: "github.com/mithila-madhusankha",
-      href: "https://github.com/mithila-madhusankha",
+      label: "github.com/NKDMMadhusankha",
+      href: "https://github.com/NKDMMadhusankha",
       color: "text-gray-400",
     },
     {
       icon: Linkedin,
       label: "linkedin.com/in/mithila-madhusankha",
-      href: "https://linkedin.com/in/mithila-madhusankha",
+      href: "https://www.linkedin.com/in/mithila-madhusankha/",
       color: "text-blue-500",
     },
   ];
 
   return (
-    <section id="contact" className={`py-20 px-4 ${theme === "dark" ? "bg-black/60 text-white" : "bg-slate-100/60 text-gray-900"} font-['Roboto_Mono',monospace] overflow-hidden`}>
-      <div className="max-w-4xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+    <section id="contact" className={`relative py-20 px-4 ${theme === "dark" ? "bg-black/60 text-white" : "bg-slate-100/60 text-gray-900"} font-['Roboto_Mono',monospace] overflow-hidden`}>          <div className="relative max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-16 font-['Roboto_Mono',monospace]"
+          className="text-center mb-16"
         >
-          <span className={`${theme === "dark" ? "text-white" : "text-black"}`}>Get In Touch</span>
-        </motion.h2>
-        
-        <div className="grid md:grid-cols-2 gap-12">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+            className="inline-flex items-center gap-3 mb-6"
+            whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-foreground">Let's Connect</h3>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              I'm always open to discussing new opportunities, collaborating on exciting projects, 
-              or simply having a conversation about technology and software development.
-            </p>
-            <div className="space-y-4">
-              {contactLinks.map((link) => (
+            <MessageCircle className="w-8 h-8 text-gray-400" />
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
+              Let's Connect
+            </h2>
+          </motion.div>
+          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto"></div>
+        </motion.div>
+        
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left side - Contact info with modern styling */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="relative">
+              <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-gray-400 to-transparent"></div>
+              <h3 className="text-3xl font-bold mb-6 text-gray-200">Get In Touch</h3>
+              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                I'm always open to discussing new opportunities, collaborating on exciting projects, 
+                or simply having a conversation about technology and software development.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              {contactLinks.map((link, index) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center text-muted-foreground hover:text-accent-500 transition-colors group"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ x: 10, scale: 1.02 }}
+                  className="group flex items-center p-4 rounded-lg bg-gray-900/50 border border-gray-800/50 hover:border-gray-600/50 transition-all duration-300"
                 >
-                  <link.icon className={`${link.color} mr-4 w-6 h-6 group-hover:text-accent-500 transition-colors`} />
-                  {link.label}
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <link.icon className={`relative ${link.color} w-6 h-6 mr-4 group-hover:scale-110 transition-transform`} />
+                  </div>
+                  <span className="text-gray-300 group-hover:text-white transition-colors text-sm">
+                    {link.label}
+                  </span>
                 </motion.a>
               ))}
             </div>
           </motion.div>
           
+          {/* Right side - Modern form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
+            className="relative"
           >
-            <Card className="bg-card border-border">
+            {/* Glassmorphism background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/40 to-gray-800/20 backdrop-blur-sm rounded-2xl border border-gray-700/30"></div>
+            
+            <Card className="relative bg-transparent border-0 shadow-2xl">
               <CardContent className="p-6">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -143,16 +170,21 @@ export function Contact() {
                       control={form.control}
                       name="name"
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Name</FormLabel>
+                        <FormItem className="space-y-2">
+                          <FormLabel className="text-gray-300 text-xs font-medium uppercase tracking-wider">
+                            Name
+                          </FormLabel>
                           <FormControl>
-                            <Input
-                              {...field}
-                              placeholder="Your Name"
-                              className="bg-background border-border focus:border-accent-500 transition-colors"
-                            />
+                            <div className="relative">
+                              <Input
+                                {...field}
+                                placeholder="Your Name"
+                                className="bg-gray-900/50 border-gray-700/50 text-white placeholder-gray-400 h-10 rounded-lg focus:border-gray-500 focus:ring-2 focus:ring-gray-500/20 transition-all duration-300"
+                              />
+                              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-gray-600/10 to-transparent opacity-0 hover:opacity-100 transition-opacity pointer-events-none"></div>
+                            </div>
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
@@ -161,17 +193,22 @@ export function Contact() {
                       control={form.control}
                       name="email"
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email</FormLabel>
+                        <FormItem className="space-y-2">
+                          <FormLabel className="text-gray-300 text-xs font-medium uppercase tracking-wider">
+                            Email
+                          </FormLabel>
                           <FormControl>
-                            <Input
-                              {...field}
-                              type="email"
-                              placeholder="your.email@example.com"
-                              className="bg-background border-border focus:border-accent-500 transition-colors"
-                            />
+                            <div className="relative">
+                              <Input
+                                {...field}
+                                type="email"
+                                placeholder="your.email@example.com"
+                                className="bg-gray-900/50 border-gray-700/50 text-white placeholder-gray-400 h-10 rounded-lg focus:border-gray-500 focus:ring-2 focus:ring-gray-500/20 transition-all duration-300"
+                              />
+                              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-gray-600/10 to-transparent opacity-0 hover:opacity-100 transition-opacity pointer-events-none"></div>
+                            </div>
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
@@ -180,35 +217,50 @@ export function Contact() {
                       control={form.control}
                       name="message"
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message</FormLabel>
+                        <FormItem className="space-y-2">
+                          <FormLabel className="text-gray-300 text-xs font-medium uppercase tracking-wider">
+                            Message
+                          </FormLabel>
                           <FormControl>
-                            <Textarea
-                              {...field}
-                              rows={5}
-                              placeholder="Your message..."
-                              className="bg-background border-border focus:border-accent-500 transition-colors resize-none"
-                            />
+                            <div className="relative">
+                              <Textarea
+                                {...field}
+                                rows={4}
+                                placeholder="Your message..."
+                                className="bg-gray-900/50 border-gray-700/50 text-white placeholder-gray-400 rounded-lg focus:border-gray-500 focus:ring-2 focus:ring-gray-500/20 transition-all duration-300 resize-none"
+                              />
+                              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-gray-600/10 to-transparent opacity-0 hover:opacity-100 transition-opacity pointer-events-none"></div>
+                            </div>
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
                     
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-accent-500 hover:bg-accent-600 text-white glow-on-hover"
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      {isSubmitting ? (
-                        "Sending..."
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-4 w-4" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
+                      <Button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full h-12 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-600/30 group"
+                      >
+                        <div className="flex items-center justify-center gap-3">
+                          {isSubmitting ? (
+                            <>
+                              <div className="w-5 h-5 border-2 border-gray-400 border-t-white rounded-full animate-spin"></div>
+                              <span>Sending...</span>
+                            </>
+                          ) : (
+                            <>
+                              <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                              <span>Send Message</span>
+                            </>
+                          )}
+                        </div>
+                      </Button>
+                    </motion.div>
                   </form>
                 </Form>
               </CardContent>

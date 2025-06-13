@@ -5,10 +5,9 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
-import { Certifications } from "@/components/certifications";
+import { Education as EducationBackground } from "@/components/educational-background";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
-import { Education } from "@/components/education";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,8 +27,7 @@ export default function Home() {
           <About />
           <Skills />
           <Projects />
-          <Certifications />
-          <Education />
+          <EducationBackground />
           <Contact />
           <Footer />
         </div>

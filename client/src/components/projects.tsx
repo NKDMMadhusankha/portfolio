@@ -46,6 +46,28 @@ const projects = [
 	},
 ];
 
+// Cool card animation variants
+const cardVariants = {
+	hidden: { 
+		opacity: 0, 
+		y: 30,
+		scale: 0.95,
+		rotateX: 10
+	},
+	visible: { 
+		opacity: 1, 
+		y: 0,
+		scale: 1,
+		rotateX: 0,
+		transition: {
+			type: "spring",
+			damping: 20,
+			stiffness: 100,
+			duration: 0.6
+		}
+	}
+};
+
 export function Projects() {
 	const { theme } = useTheme();
 	const [modalImage, setModalImage] = useState<string | null>(null);
@@ -69,23 +91,24 @@ export function Projects() {
 					<span className={`${theme === "dark" ? "text-white" : "text-black"}`}>Featured Projects</span>
 				</motion.h2>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-6">
 					{projects.map((project, index) => (
 						<motion.div
 							key={project.title}
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: index * 0.2 }}
+							variants={cardVariants}
+							initial="hidden"
+							whileInView="visible"
 							viewport={{ once: true }}
+							transition={{ delay: index * 0.2 }}
+							className="flex"
 						>
-							<Card className={`${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden h-74 md:h-full transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] max-w-2xl mx-auto`}>
-								<div className="flex flex-row items-stretch">
-									<div className="w-1/2 md:w-1/2 flex-shrink-0">
+							<Card className={`${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[540px]`}>
+								<div className="flex flex-col items-stretch h-full">
+									<div className="w-full flex-shrink-0 h-72 flex items-center justify-center">
 										<button
 											type="button"
 											onClick={() => setModalImage(project.image)}
-											className="focus:outline-none h-full"
-											style={{ display: 'block', width: '100%' }}
+											className="focus:outline-none h-full w-full flex items-center justify-center"
 										>
 											<img
 												src={project.image}
@@ -94,35 +117,60 @@ export function Projects() {
 											/>
 										</button>
 									</div>
-									<CardContent className="p-3 md:p-5 flex flex-col justify-center w-1/2 md:w-1/2">
-										<h3 className="text-sm md:text-lg font-bold mb-2 text-foreground">
-											{project.title}
-										</h3>
-										<p className={`${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} mb-3 md:mb-3 leading-relaxed text-xs md:text-sm`}>
-											{project.description}
-										</p>
-
-										<div className="flex flex-wrap gap-1 mb-2 md:mb-3">
-											{project.technologies.map((tech) => (
-												<Badge
-													key={tech}
-													variant="secondary"
-													className={`px-1 md:px-2 py-0.5 ${
-														theme === "dark" 
-															? "bg-accent-500/20 text-accent-400" 
-															: "bg-gray-200 text-gray-800 border border-gray-300 font-medium"
-													} text-xs`}
-												>
-													{tech}
-												</Badge>
-											))}
+									<CardContent className="p-3 md:p-4 flex flex-col justify-between w-full flex-grow">
+										<div>
+											<h3 className="text-sm md:text-base font-bold mb-2 text-foreground">
+												{project.title}
+											</h3>
+											<p className={`${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} mb-3 leading-relaxed text-xs line-clamp-3`}>
+												{project.description}
+											</p>
+											<div className="flex flex-wrap gap-1 mb-2">
+												{project.technologies.map((tech, techIndex) => (
+													<motion.div
+														key={tech}
+														initial={{ opacity: 0, scale: 0.8 }}
+														whileInView={{ opacity: 1, scale: 1 }}
+														transition={{ 
+															delay: 0.4 + (techIndex * 0.05),
+															duration: 0.3,
+															ease: "easeOut"
+														}}
+														viewport={{ once: true }}
+													>
+														<Badge
+															variant="secondary"
+															className={`px-1 md:px-2 py-0.5 ${
+																theme === "dark" 
+																	? "bg-accent-500/20 text-accent-400" 
+																	: "bg-gray-200 text-gray-800 border border-gray-300 font-medium"
+															} text-xs`}
+														>
+															{tech}
+														</Badge>
+													</motion.div>
+												))}
+											</div>
 										</div>
-
-										<div className="flex gap-1 md:gap-2 mt-2 md:mt-4 w-full justify-start flex-col md:flex-row">
+										<motion.div 
+											className="flex gap-3 mt-4 mb-2 w-full justify-start flex-col sm:flex-row"
+											initial={{ opacity: 0, y: 10 }}
+											whileInView={{ opacity: 1, y: 0 }}
+											transition={{ 
+												delay: 0.6,
+												duration: 0.4,
+												ease: "easeOut"
+											}}
+											viewport={{ once: true }}
+										>
 											<Button
 												variant="outline"
 												size="sm"
-												className="text-accent-500 border-accent-500 hover:bg-accent-500 hover:text-white text-xs py-1 self-start w-full md:w-auto"
+												className={`${
+													theme === "dark" 
+														? "text-white border-gray-600 hover:bg-gray-800 hover:text-white" 
+														: "text-gray-800 border-gray-300 hover:bg-gray-200 hover:text-gray-900"
+												} text-xs py-1 self-start w-full md:w-auto`}
 												asChild
 											>
 												<a
@@ -137,7 +185,11 @@ export function Projects() {
 											<Button
 												variant="outline"
 												size="sm"
-												className="text-accent-500 border-accent-500 hover:bg-accent-500 hover:text-white text-xs py-1 self-start w-full md:w-auto"
+												className={`${
+													theme === "dark" 
+														? "text-white border-gray-600 hover:bg-gray-800 hover:text-white" 
+														: "text-gray-800 border-gray-300 hover:bg-gray-200 hover:text-gray-900"
+												} text-xs py-1 self-start w-full md:w-auto`}
 												asChild
 											>
 												<a
@@ -149,7 +201,7 @@ export function Projects() {
 													Code
 												</a>
 											</Button>
-										</div>
+										</motion.div>
 									</CardContent>
 								</div>
 							</Card>
