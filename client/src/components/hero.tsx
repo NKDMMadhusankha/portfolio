@@ -40,9 +40,9 @@ export function Hero() {
   };
 
   const downloadCV = () => {
-    // Create a link element and trigger download
+    // Directly link to the public folder CV file
     const link = document.createElement('a');
-    link.href = '/api/download-cv';
+    link.href = '/cv.pdf';
     link.download = 'Mithila_Madhusankha_CV.pdf';
     document.body.appendChild(link);
     link.click();
