@@ -39,16 +39,6 @@ export function Hero() {
     }
   };
 
-  const downloadCV = () => {
-    // Directly link to the public folder CV file
-    const link = document.createElement('a');
-    link.href = '/cv.pdf';
-    link.download = 'Mithila_Madhusankha_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const socialLinks = [
     { icon: <Github className="h-5 w-5" />, url: "https://github.com/NKDMMadhusankha", label: "GitHub" },
     { icon: <Linkedin className="h-5 w-5" />, url: "http://www.linkedin.com/in/mithila-madhusankha", label: "LinkedIn" },
@@ -98,17 +88,18 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button
-              onClick={downloadCV}
-              className={`px-8 py-3 ${
-                theme === "dark" 
-                  ? "bg-gray-800 hover:bg-gray-700 text-white" 
+            <a
+              href="/cv.pdf"
+              download="Mithila_Madhusankha_CV.pdf"
+              className={`px-8 py-3 flex items-center justify-center no-underline rounded-md font-semibold transition-all duration-300 ${
+                theme === "dark"
+                  ? "bg-gray-800 hover:bg-gray-700 text-white"
                   : "bg-gray-900 hover:bg-black text-white"
-              } font-semibold transition-all duration-300`}
+              }`}
             >
               <Download className="mr-2 h-4 w-4" />
               Download CV
-            </Button>
+            </a>
             <Button
               variant="outline"
               onClick={scrollToContact}
