@@ -1,4 +1,4 @@
-# Mithila Madhusankha - Portfolio
+# Mithila Madhusankha - (Portfolio)
 
 This is a modern, full-stack portfolio website for Mithila Madhusankha, a Software Engineering undergraduate specializing in full-stack development, React, TypeScript, Node.js, and modern web technologies.
 
