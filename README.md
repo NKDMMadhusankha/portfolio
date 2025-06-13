@@ -63,3 +63,7 @@ This is a modern, full-stack portfolio website for Mithila Madhusankha, a Softwa
 
 
 **Contact:** mithila.madhusankha@email.com
+
+# Portfolio
+
+Triggering redeploy to refresh GitHub Pages cache for cv.pdf download issue.
