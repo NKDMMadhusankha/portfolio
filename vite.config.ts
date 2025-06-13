@@ -25,6 +25,7 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname, "client"),
   base: '/portfolio/',
+  publicDir: "public", // Ensure client/public is used for static assets
   build: {
     outDir: path.resolve(import.meta.dirname, "docs"),
     emptyOutDir: true,
