@@ -242,7 +242,7 @@ export function Projects() {
 				    max-width: 420px !important;
 				    margin-left: auto !important;
 				    margin-right: auto !important;
-				    height: 400px !important;
+				    height: 360px !important;
 				    min-width: 0 !important;
 				    min-height: 0 !important;
 				  }
@@ -264,7 +264,7 @@ export function Projects() {
 				    font-size: 0.8rem !important;
 				  }
 				  .h-[220px], .h-[320px] {
-				    height: 400px !important;
+				    height: 360px !important;
 				  }
 				  .w-1\/3 {
 				    width: 45% !important;
