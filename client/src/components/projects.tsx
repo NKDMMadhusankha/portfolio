@@ -107,8 +107,8 @@ export function Projects() {
 							className="flex"
 						>
 							<Card className={`card ${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[320px] md:h-[540px] min-w-0 min-h-0`}>
-								<div className="flex flex-col md:flex-col items-stretch h-full">
-									<div className="w-full flex-shrink-0 h-40 md:h-72 flex items-center justify-center min-w-0 min-h-0">
+								<div className="flex flex-row md:flex-col items-stretch h-full">
+									<div className="w-2/5 md:w-full flex-shrink-0 h-full md:h-72 flex items-center justify-center min-w-0 min-h-0">
 										<button
 											type="button"
 											onClick={() => setModalImage(project.image)}
@@ -117,21 +117,21 @@ export function Projects() {
 											<img
 												src={project.image}
 												alt={project.title}
-												className="w-full h-full object-cover transform-none cursor-pointer rounded-t-md md:rounded-md min-w-0 min-h-0"
+												className="w-full h-full object-cover transform-none cursor-pointer rounded-l-md md:rounded-t-md min-w-0 min-h-0"
 												style={{ objectPosition: "center" }}
 											/>
 										</button>
 									</div>
-									<CardContent className="p-3 md:p-4 flex flex-col justify-between flex-grow min-w-0 min-h-0">
+									<CardContent className="p-3 md:p-4 flex flex-col justify-between w-3/5 md:w-full flex-grow min-w-0 min-h-0">
 										<div className="flex-grow">
-											<h3 className="text-base md:text-base font-bold mb-2 text-foreground">
+											<h3 className="text-sm md:text-base font-bold mb-1 md:mb-2 text-foreground">
 												{project.title}
 											</h3>
-											<p className={`${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} mb-3 leading-relaxed text-sm line-clamp-3`}>
+											<p className={`${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} mb-2 md:mb-3 leading-relaxed text-xs md:text-sm line-clamp-2 md:line-clamp-3`}>
 												{project.description}
 											</p>
-											<div className="flex flex-wrap gap-1 mb-3">
-												{project.technologies.map((tech, techIndex) => (
+											<div className="flex flex-wrap gap-1 mb-2 md:mb-3">
+												{project.technologies.slice(0, 4).map((tech, techIndex) => (
 													<motion.div
 														key={tech}
 														initial={{ opacity: 0, scale: 0.8 }}
@@ -145,7 +145,7 @@ export function Projects() {
 													>
 														<Badge
 															variant="secondary"
-															className={`px-2 py-0.5 ${
+															className={`px-1 md:px-2 py-0.5 ${
 																theme === "dark" 
 																	? "bg-accent-500/20 text-accent-400" 
 																	: "bg-gray-200 text-gray-800 border border-gray-300 font-medium"
@@ -155,10 +155,22 @@ export function Projects() {
 														</Badge>
 													</motion.div>
 												))}
+												{project.technologies.length > 4 && (
+													<Badge
+														variant="secondary"
+														className={`px-1 md:px-2 py-0.5 ${
+															theme === "dark" 
+																? "bg-accent-500/20 text-accent-400" 
+																: "bg-gray-200 text-gray-800 border border-gray-300 font-medium"
+														} text-xs`}
+													>
+														+{project.technologies.length - 4}
+													</Badge>
+												)}
 											</div>
 										</div>
 										<motion.div 
-											className="flex gap-2 mt-auto w-full justify-start"
+											className="flex flex-col md:flex-row gap-1 md:gap-2 mt-auto w-full"
 											initial={{ opacity: 0, y: 10 }}
 											whileInView={{ opacity: 1, y: 0 }}
 											transition={{ 
@@ -175,7 +187,7 @@ export function Projects() {
 													theme === "dark" 
 														? "text-white border-gray-600 hover:bg-gray-800 hover:text-white" 
 														: "text-gray-800 border-gray-300 hover:bg-gray-200 hover:text-gray-900"
-												} text-xs py-1 flex-1`}
+												} text-xs py-1 w-full md:flex-1`}
 												asChild
 											>
 												<a
@@ -194,7 +206,7 @@ export function Projects() {
 													theme === "dark" 
 														? "text-white border-gray-600 hover:bg-gray-800 hover:text-white" 
 														: "text-gray-800 border-gray-300 hover:bg-gray-200 hover:text-gray-900"
-												} text-xs py-1 flex-1`}
+												} text-xs py-1 w-full md:flex-1`}
 												asChild
 											>
 												<a
@@ -244,82 +256,87 @@ export function Projects() {
 				  .card {
 				    width: 100% !important;
 				    max-width: 100% !important;
-				    height: auto !important;
-				    min-height: 420px !important;
+				    height: 200px !important;
+				    min-height: 200px !important;
 				  }
 				  
-				  .card .flex.flex-col {
+				  .card .flex.flex-row {
 				    height: 100% !important;
 				  }
 				  
-				  .card .w-full.h-40 {
-				    height: 180px !important;
+				  .card .w-2\/5 {
+				    width: 40% !important;
+				    height: 100% !important;
 				    flex-shrink: 0 !important;
+				  }
+				  
+				  .card .w-3\/5 {
+				    width: 60% !important;
+				    height: 100% !important;
 				  }
 				  
 				  .card img {
 				    width: 100% !important;
 				    height: 100% !important;
 				    object-fit: cover !important;
-				    border-radius: 8px 8px 0 0 !important;
+				    border-radius: 8px 0 0 8px !important;
 				  }
 				  
 				  .card .p-3 {
-				    padding: 16px !important;
+				    padding: 8px !important;
 				    display: flex !important;
 				    flex-direction: column !important;
-				    flex-grow: 1 !important;
 				    justify-content: space-between !important;
+				    height: 100% !important;
 				  }
 				  
 				  .card h3 {
-				    font-size: 1.1rem !important;
-				    line-height: 1.4 !important;
-				    margin-bottom: 8px !important;
+				    font-size: 0.9rem !important;
+				    line-height: 1.2 !important;
+				    margin-bottom: 4px !important;
 				    font-weight: 700 !important;
 				  }
 				  
 				  .card p {
-				    font-size: 0.9rem !important;
-				    line-height: 1.5 !important;
-				    margin-bottom: 12px !important;
+				    font-size: 0.75rem !important;
+				    line-height: 1.3 !important;
+				    margin-bottom: 6px !important;
 				    display: -webkit-box !important;
-				    -webkit-line-clamp: 3 !important;
+				    -webkit-line-clamp: 2 !important;
 				    -webkit-box-orient: vertical !important;
 				    overflow: hidden !important;
 				  }
 				  
 				  .card .flex.flex-wrap.gap-1 {
-				    margin-bottom: 16px !important;
-				    gap: 4px !important;
+				    margin-bottom: 8px !important;
+				    gap: 2px !important;
 				  }
 				  
-				  .card .text-xs.px-2 {
-				    font-size: 0.75rem !important;
-				    padding: 2px 6px !important;
+				  .card .text-xs.px-1 {
+				    font-size: 0.65rem !important;
+				    padding: 1px 4px !important;
+				    line-height: 1.2 !important;
 				  }
 				  
-				  .card .flex.gap-2.mt-auto {
+				  .card .flex.flex-col.gap-1 {
+				    gap: 3px !important;
 				    margin-top: auto !important;
-				    gap: 8px !important;
-				    width: 100% !important;
 				  }
 				  
-				  .card .flex-1 {
-				    flex: 1 !important;
-				    font-size: 0.8rem !important;
-				    padding: 8px 12px !important;
+				  .card .w-full.text-xs {
+				    font-size: 0.7rem !important;
+				    padding: 4px 8px !important;
 				    height: auto !important;
-				    min-height: 36px !important;
+				    min-height: 28px !important;
 				    display: flex !important;
 				    align-items: center !important;
 				    justify-content: center !important;
 				  }
 				  
-				  .card .flex-1 svg {
-				    width: 14px !important;
-				    height: 14px !important;
-				    margin-right: 4px !important;
+				  .card .w-full svg {
+				    width: 12px !important;
+				    height: 12px !important;
+				    margin-right: 3px !important;
 				  }
 				}
 				`
