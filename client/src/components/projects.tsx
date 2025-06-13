@@ -106,7 +106,7 @@ export function Projects() {
 							transition={{ delay: index * 0.2 }}
 							className="flex"
 						>
-							<Card className={`${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[220px] md:h-[540px]`}>
+							<Card className={`card ${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[220px] md:h-[540px]`}>
 								<div className="flex flex-row md:flex-col items-stretch h-full">
 									<div className="w-1/3 md:w-full flex-shrink-0 h-full md:h-72 flex items-center justify-center">
 										<button
@@ -237,12 +237,13 @@ export function Projects() {
 				/* Mobile-specific styles for width adjustment */
 				@media only screen and (max-width: 767px) {
 				  .grid {
-				    padding: 0 10%;
+				    padding: 0 2%;
 				  }
 				  .card {
-				    width: 90% !important;
+				    width: 98% !important;
 				    margin-left: auto !important;
 				    margin-right: auto !important;
+				    height: 280px !important;
 				  }
 				  
 				  /* Make title and description text bigger on mobile */
@@ -271,7 +272,7 @@ export function Projects() {
 				  
 				  /* Add more space for content */
 				  .h-[220px] {
-				    height: 240px !important;
+				    height: 280px !important;
 				  }
 				}
 				`
