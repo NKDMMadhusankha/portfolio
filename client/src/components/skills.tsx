@@ -142,7 +142,7 @@ export function Skills() {
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Card className={`card-hover bg-card border-border hover:border-accent-500 transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
+                  <Card className={`card-hover ${theme === "dark" ? "bg-transparent" : "bg-card"} border-border hover:border-accent-500 transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
                     <CardContent className="p-3 text-center">
                       <skill.icon className={`text-2xl ${skill.color} mb-1 mx-auto`} />
                       <p className={`font-semibold text-xs ${theme === "light" ? "text-slate-800" : "text-foreground"}`}>{skill.name}</p>
@@ -168,7 +168,7 @@ export function Skills() {
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Card className={`card-hover bg-card border-border hover:border-accent-500 transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
+                  <Card className={`card-hover ${theme === "dark" ? "bg-transparent" : "bg-card"} border-border hover:border-accent-500 transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
                     <CardContent className="p-3 text-center">
                       <skill.icon className={`text-2xl ${skill.color} mb-1 mx-auto`} />
                       <p className={`font-semibold text-xs ${theme === "light" ? "text-slate-800" : "text-foreground"}`}>{skill.name}</p>

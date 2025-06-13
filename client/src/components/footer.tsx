@@ -41,19 +41,19 @@ export function Footer() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="py-10 border-t bg-black text-white font-['Roboto_Mono',monospace] overflow-hidden"
+      className="w-full py-6 sm:py-10 border-t bg-black text-white font-['Roboto_Mono',monospace] overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Three column layout */}
+      <div className="w-full max-w-6xl mx-auto px-4">
+        {/* Responsive column layout */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6"
+          className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-6"
         >
           {/* Left column - Name/description */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="w-full flex flex-col items-center sm:items-start">
             <motion.h2 
               className="text-xl font-bold tracking-tight font-['Roboto_Mono',monospace]"
               whileHover={{ scale: 1.03 }}
@@ -63,15 +63,15 @@ export function Footer() {
             </motion.h2>
             
             <motion.p
-              className="mt-2 text-sm text-gray-300"
+              className="mt-2 text-sm text-gray-300 text-center sm:text-left"
             >
               Passionate full-stack developer crafting elegant solutions with modern technologies.
             </motion.p>
           </motion.div>
           
           {/* Middle column - Quick Links */}
-          <motion.div variants={itemVariants} className="flex justify-center">
-            <div className="flex flex-col gap-4 items-center text-center">
+          <motion.div variants={itemVariants} className="w-full flex justify-center">
+            <div className="flex flex-col gap-2 sm:gap-4 items-center text-center">
               {/* Quick Links Heading */}
               <motion.h3
                 className="text-base font-medium mb-1 text-white"
@@ -111,9 +111,9 @@ export function Footer() {
           </motion.div>
           
           {/* Right column - Email */}
-          <motion.div variants={itemVariants} className="flex flex-col justify-start md:justify-start items-start md:items-end">
+          <motion.div variants={itemVariants} className="w-full flex flex-col justify-start items-center sm:items-start md:items-end">
             <motion.p
-              className="text-sm text-gray-300"
+              className="text-sm text-gray-300 text-center sm:text-left md:text-right"
               whileHover={{ scale: 1.02 }}
             >
               Email: <motion.a 
@@ -129,7 +129,7 @@ export function Footer() {
             </motion.p>
             
             <motion.p
-              className="text-sm mt-1 text-gray-300"
+              className="text-sm mt-1 text-gray-300 text-center sm:text-left md:text-right"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -140,7 +140,7 @@ export function Footer() {
         
         {/* Simple horizontal divider with animation */}
         <motion.div 
-          className="w-full h-px bg-gray-600 opacity-50 mb-6"
+          className="w-full h-px bg-gray-600 opacity-50 mb-4 sm:mb-6"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -148,13 +148,13 @@ export function Footer() {
         ></motion.div>
         
         {/* Copyright only - clean and professional */}
-        <div className="flex justify-center">
+        <div className="w-full flex justify-center">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.6 }}
             viewport={{ once: true }}
-            className="text-xs text-gray-400"
+            className="text-xs text-gray-400 text-center px-4"
           >
             © {new Date().getFullYear()} Mithila Madhusankha. All rights reserved.
           </motion.p>

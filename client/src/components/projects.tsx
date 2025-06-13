@@ -91,7 +91,7 @@ export function Projects() {
 					<span className={`${theme === "dark" ? "text-white" : "text-black"}`}>Featured Projects</span>
 				</motion.h2>
 
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
 					{projects.map((project, index) => (
 						<motion.div
 							key={project.title}
@@ -102,9 +102,9 @@ export function Projects() {
 							transition={{ delay: index * 0.2 }}
 							className="flex"
 						>
-							<Card className={`${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[540px]`}>
-								<div className="flex flex-col items-stretch h-full">
-									<div className="w-full flex-shrink-0 h-72 flex items-center justify-center">
+							<Card className={`${theme === "dark" ? "bg-transparent" : "bg-white"} border-gray-400 overflow-hidden transform-none transition-shadow duration-300 hover:shadow-[0_4px_24px_0_rgba(120,120,120,0.25)] mx-auto w-full h-[220px] md:h-[540px]`}>
+								<div className="flex flex-row md:flex-col items-stretch h-full">
+									<div className="w-1/3 md:w-full flex-shrink-0 h-full md:h-72 flex items-center justify-center">
 										<button
 											type="button"
 											onClick={() => setModalImage(project.image)}
@@ -117,15 +117,15 @@ export function Projects() {
 											/>
 										</button>
 									</div>
-									<CardContent className="p-3 md:p-4 flex flex-col justify-between w-full flex-grow">
+									<CardContent className="p-2 md:p-4 flex flex-col justify-between w-2/3 md:w-full flex-grow">
 										<div>
-											<h3 className="text-sm md:text-base font-bold mb-2 text-foreground">
+											<h3 className="text-xs md:text-base font-bold mb-1 md:mb-2 text-foreground">
 												{project.title}
 											</h3>
-											<p className={`${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} mb-3 leading-relaxed text-xs line-clamp-3`}>
+											<p className={`${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} mb-1 md:mb-3 leading-relaxed text-xs line-clamp-2 md:line-clamp-3`}>
 												{project.description}
 											</p>
-											<div className="flex flex-wrap gap-1 mb-2">
+											<div className="flex flex-wrap gap-1 mb-1 md:mb-2">
 												{project.technologies.map((tech, techIndex) => (
 													<motion.div
 														key={tech}
@@ -153,7 +153,7 @@ export function Projects() {
 											</div>
 										</div>
 										<motion.div 
-											className="flex gap-3 mt-4 mb-2 w-full justify-start flex-col sm:flex-row"
+											className="flex gap-2 mt-2 md:mt-4 md:mb-2 w-full justify-start flex-col sm:flex-row"
 											initial={{ opacity: 0, y: 10 }}
 											whileInView={{ opacity: 1, y: 0 }}
 											transition={{ 
@@ -170,7 +170,7 @@ export function Projects() {
 													theme === "dark" 
 														? "text-white border-gray-600 hover:bg-gray-800 hover:text-white" 
 														: "text-gray-800 border-gray-300 hover:bg-gray-200 hover:text-gray-900"
-												} text-xs py-1 self-start w-full md:w-auto`}
+												} text-[10px] md:text-xs py-0.5 md:py-1 self-start w-full md:w-auto`}
 												asChild
 											>
 												<a
@@ -189,7 +189,7 @@ export function Projects() {
 													theme === "dark" 
 														? "text-white border-gray-600 hover:bg-gray-800 hover:text-white" 
 														: "text-gray-800 border-gray-300 hover:bg-gray-200 hover:text-gray-900"
-												} text-xs py-1 self-start w-full md:w-auto`}
+												} text-[10px] md:text-xs py-0.5 md:py-1 self-start w-full md:w-auto`}
 												asChild
 											>
 												<a
@@ -228,6 +228,47 @@ export function Projects() {
 				}
 				.animate-fadeInScale {
 				  animation: fadeInScale 0.35s cubic-bezier(0.4,0,0.2,1);
+				}
+				
+				/* Mobile-specific styles for width adjustment */
+				@media only screen and (max-width: 767px) {
+				  .grid {
+				    padding: 0 10%;
+				  }
+				  .card {
+				    width: 90% !important;
+				    margin-left: auto !important;
+				    margin-right: auto !important;
+				  }
+				  
+				  /* Make title and description text bigger on mobile */
+				  h3.text-xs {
+				    font-size: 1.2rem !important;
+				    line-height: 1.5 !important;
+				    margin-bottom: 0.5rem !important;
+				  }
+				  
+				  p.text-xs {
+				    font-size: 1rem !important;
+				    line-height: 1.6 !important;
+				    margin-bottom: 0.5rem !important;
+				  }
+				  
+				  /* Make tech badges more readable */
+				  .text-xs.px-1 {
+				    font-size: 0.8rem !important;
+				    padding: 0.15rem 0.4rem !important;
+				  }
+				  
+				  /* Increase button text size */
+				  button .text-[10px], a .text-[10px] {
+				    font-size: 0.8rem !important;
+				  }
+				  
+				  /* Add more space for content */
+				  .h-[220px] {
+				    height: 240px !important;
+				  }
 				}
 				`
 			}} />

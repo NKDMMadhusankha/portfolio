@@ -172,7 +172,7 @@ export function Contact() {
                       render={({ field }) => (
                         <FormItem className="space-y-2">
                           <FormLabel className="text-gray-300 text-xs font-medium uppercase tracking-wider">
-                            Name
+                            Full Name
                           </FormLabel>
                           <FormControl>
                             <div className="relative">

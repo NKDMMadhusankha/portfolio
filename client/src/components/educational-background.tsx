@@ -109,7 +109,7 @@ export function Education() {
 									index % 2 === 0
 										? "md:justify-end"
 										: "md:justify-start"
-								} relative`}
+								} relative flex justify-center md:justify-start`}
 							>
 								{/* Timeline dot */}
 								<div
@@ -121,7 +121,7 @@ export function Education() {
 								></div>
 
 								<Card
-									className={`max-w-lg md:w-[calc(50%-40px)] transition-all duration-300 ${
+									className={`max-w-lg w-[90%] md:w-[calc(50%-40px)] transition-all duration-300 ${
 										theme === "dark"
 											? "bg-gray-900/80 border-gray-700 shadow-[0_0_15px_rgba(75,75,75,0.1)]"
 											: "bg-white/90 border-gray-200 shadow-lg"

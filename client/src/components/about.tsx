@@ -14,7 +14,7 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-left mb-5 font-['Roboto_Mono',monospace]"
+          className="text-4xl font-bold text-left md:text-left mb-5 font-['Roboto_Mono',monospace] about-title"
         >
           <span className={`${theme === "dark" ? "text-white" : "text-gray-900"} font-['Roboto_Mono',monospace]`}>About Me</span>
         </motion.h2>
@@ -85,6 +85,18 @@ export function About() {
           </motion.div>
         </div>
       </div>
+      
+      {/* Add mobile-specific styles */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @media only screen and (max-width: 767px) {
+            .about-title {
+              text-align: center !important;
+              width: 100% !important;
+            }
+          }
+        `
+      }} />
     </section>
   );
 }
