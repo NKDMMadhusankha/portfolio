@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Mail, Github, Linkedin, Send, MessageCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { useTheme } from "@/hooks/use-theme";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_KEY } from "@/lib/emailjs";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -37,28 +39,45 @@ export function Contact() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     
+    // Log EmailJS configuration (remove in production)
+    console.log('Attempting to send email with:');
+    console.log('- Service ID:', EMAILJS_SERVICE_ID ? '[Present]' : '[Missing]');
+    console.log('- Template ID:', EMAILJS_TEMPLATE_ID ? '[Present]' : '[Missing]');
+    console.log('- Public Key:', EMAILJS_KEY ? '[Present]' : '[Missing]');
+    
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_KEY) {
+        throw new Error('Email configuration is incomplete. Missing service ID, template ID, or public key.');
+      }
+      
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID, 
+        EMAILJS_TEMPLATE_ID, 
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        }, 
+        EMAILJS_KEY
+      );
 
-      if (response.ok) {
+      console.log('EmailJS Response:', response);
+      
+      if (response.status === 200) {
         toast({
           title: "Message sent successfully!",
           description: "I'll get back to you soon.",
         });
         form.reset();
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(`Failed to send message. Status: ${response.status}`);
       }
-    } catch (error) {
+    } catch (error: any) {
+      console.error('EmailJS Error:', error);
       toast({
         title: "Error sending message",
-        description: "Please try again later or contact me directly via email.",
+        description: error.message || "Please try again later or contact me directly via email.",
         variant: "destructive",
       });
     } finally {
