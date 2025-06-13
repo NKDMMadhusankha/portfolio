@@ -239,9 +239,10 @@ export function Projects() {
 				  }
 				  .card {
 				    width: 99% !important;
+				    max-width: 420px !important;
 				    margin-left: auto !important;
 				    margin-right: auto !important;
-				    height: 340px !important;
+				    height: 400px !important;
 				    min-width: 0 !important;
 				    min-height: 0 !important;
 				  }
@@ -263,7 +264,7 @@ export function Projects() {
 				    font-size: 0.8rem !important;
 				  }
 				  .h-[220px], .h-[320px] {
-				    height: 340px !important;
+				    height: 400px !important;
 				  }
 				  .w-1\/3 {
 				    width: 45% !important;
