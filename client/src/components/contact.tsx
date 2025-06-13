@@ -55,9 +55,12 @@ export function Contact() {
         EMAILJS_SERVICE_ID, 
         EMAILJS_TEMPLATE_ID, 
         {
+          name: data.name,
           from_name: data.name,
           from_email: data.email,
+          email: data.email,
           message: data.message,
+          time: new Date().toLocaleString(),
         }, 
         EMAILJS_KEY
       );
