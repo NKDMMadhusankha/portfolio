@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
-import img1 from "@/../images/img1.jpeg";
-import img2 from "@/../images/img2.jpeg";
 
 export function About() {
   const { theme } = useTheme();
@@ -45,45 +43,26 @@ export function About() {
               production skills. This creative background enhances my approach to software development, 
               bringing innovation and attention to detail to every project I work on.
             </p>
-          </motion.div>
-          <motion.div
+          </motion.div>          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="relative font-['Roboto_Mono',monospace]"
+            className="relative font-['Roboto_Mono',monospace] flex justify-center"
           >
-            <div className="grid grid-cols-2 gap-4 h-[450px]">
-              {/* Left column */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="col-span-1 h-full rounded-xl overflow-hidden shadow-lg"
-              >
-                <img
-                  src={img1}
-                  alt="Modern developer workspace"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-              
-              {/* Right column - positioned lower */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
-                viewport={{ once: true }}
-                className="col-span-1 h-full rounded-xl overflow-hidden shadow-lg mt-16"
-              >
-                <img
-                  src={img2}
-                  alt="Creative workspace"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="h-[610px] w-[85%] rounded-xl overflow-hidden shadow-lg"
+            >
+              <img
+                src="aboutb.png"
+                alt="About me profile"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
