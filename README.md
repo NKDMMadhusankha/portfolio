@@ -52,15 +52,6 @@ This is a modern, full-stack portfolio website for Mithila Madhusankha, a Softwa
 - Update your personal information in `portfolio.config.toml` and relevant React components in `client/src/components/`.
 - Replace images in `client/images/` and update project/skills data as needed.
 
-## Screenshots
-
-### Light Mode
-![Light Mode Screenshot](./assets/light-mode.png)
-
-### Dark Mode
-![Dark Mode Screenshot](./assets/dark-mode.png)
-
-
 
 **Contact:** mithila.madhusankha@email.com
 
