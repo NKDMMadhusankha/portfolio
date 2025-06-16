@@ -117,13 +117,12 @@ export function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-16"
-        >
-          <motion.div
-            className="inline-flex items-center gap-3 mb-6"
+        >          <motion.div
+            className="inline-flex items-center justify-center gap-2 sm:gap-3 mb-6 flex-wrap"
             whileHover={{ scale: 1.05 }}
           >
-            <MessageCircle className={`w-8 h-8 ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`} />
-            <h2 className={`text-5xl font-bold ${theme === "dark" 
+            <MessageCircle className={`w-6 h-6 sm:w-8 sm:h-8 ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`} />
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold ${theme === "dark" 
               ? "bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent" 
               : "bg-gradient-to-r from-black via-gray-700 to-gray-500 bg-clip-text text-transparent"}`}>
               Let's Connect
