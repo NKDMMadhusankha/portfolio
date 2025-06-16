@@ -88,22 +88,28 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <a
-              href="cv.pdf"
-              download="Mithila_Madhusankha_CV.pdf"
-              className={`px-8 py-3 flex items-center justify-center no-underline rounded-md font-semibold transition-all duration-300 ${
+            <Button
+              variant={theme === "dark" ? "default" : "default"}
+              className={`px-8 py-3 h-auto ${
                 theme === "dark"
                   ? "bg-gray-800 hover:bg-gray-700 text-white"
                   : "bg-gray-900 hover:bg-black text-white"
               }`}
+              asChild
             >
-              <Download className="mr-2 h-4 w-4" />
-              Download CV
-            </a>
+              <a
+                href="cv.pdf"
+                download="Mithila_Madhusankha_CV.pdf"
+                className="flex items-center justify-center no-underline"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download CV
+              </a>
+            </Button>
             <Button
               variant="outline"
               onClick={scrollToContact}
-              className={`px-8 py-3 border-2 ${
+              className={`px-8 py-3 h-auto border-2 ${
                 theme === "dark"
                   ? "border-gray-600 text-gray-300 hover:bg-gray-800"
                   : "border-gray-800 text-gray-800 hover:bg-gray-900 hover:text-white"
