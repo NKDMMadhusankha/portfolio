@@ -57,9 +57,10 @@ export function About() {
               viewport={{ once: true }}
               className="h-[610px] w-[85%] rounded-xl overflow-hidden shadow-lg"
             >              <img
-                src="/portfolio/images/aboutb.PNG"
+                src="./images/aboutb.PNG"
                 alt="About me profile"
                 className="w-full h-full object-cover"
+                loading="eager"
               />
             </motion.div>
           </motion.div>
