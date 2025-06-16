@@ -56,9 +56,8 @@ export function About() {
               transition={{ duration: 0.4, delay: 0.3 }}
               viewport={{ once: true }}
               className="h-[610px] w-[85%] rounded-xl overflow-hidden shadow-lg"
-            >
-              <img
-                src="aboutb.png"
+            >              <img
+                src="/portfolio/images/aboutb.PNG"
                 alt="About me profile"
                 className="w-full h-full object-cover"
               />
