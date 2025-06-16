@@ -87,10 +87,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button
+          >            <Button
               variant={theme === "dark" ? "default" : "default"}
-              className={`px-8 py-3 h-auto ${
+              className={`px-8 py-2 h-auto ${
                 theme === "dark"
                   ? "bg-gray-800 hover:bg-gray-700 text-white"
                   : "bg-gray-900 hover:bg-black text-white"
@@ -105,11 +104,10 @@ export function Hero() {
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
               </a>
-            </Button>
-            <Button
+            </Button>            <Button
               variant="outline"
               onClick={scrollToContact}
-              className={`px-8 py-3 h-auto border-2 ${
+              className={`px-8 py-2 h-auto border-2 ${
                 theme === "dark"
                   ? "border-gray-600 text-gray-300 hover:bg-gray-800"
                   : "border-gray-800 text-gray-800 hover:bg-gray-900 hover:text-white"
