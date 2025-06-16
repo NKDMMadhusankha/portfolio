@@ -173,12 +173,11 @@ export function Contact() {
                         : "bg-gradient-to-r from-gray-400 to-gray-600"
                       } rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity`}></div>
                     <link.icon className={`relative ${theme === "dark" ? link.color : "text-gray-700"} w-6 h-6 mr-4 group-hover:scale-110 transition-transform`} />
-                  </div>
-                  <span className={`${
+                  </div>                  <span className={`${
                     theme === "dark" 
                       ? "text-gray-300 group-hover:text-white" 
                       : "text-gray-700 group-hover:text-black"
-                    } transition-colors text-sm`}>
+                    } transition-colors text-sm md:text-base truncate`}>
                     {link.label}
                   </span>
                 </motion.a>
