@@ -94,7 +94,7 @@ export function Hero() {
                 theme === "dark"
                   ? "bg-gray-800 hover:bg-gray-700 text-white"
                   : "bg-gray-900 hover:bg-black text-white"
-              }`}
+              } font-semibold transition-all duration-300`}
               asChild
             >
               <a
