@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
+import aboutImg from "@/../images/about.png";
 
 export function About() {
   const { theme } = useTheme();
@@ -57,7 +58,7 @@ export function About() {
               viewport={{ once: true }}
               className="h-[610px] w-[85%] rounded-xl overflow-hidden shadow-lg"
             >              <img
-                src="./images/aboutb.PNG"
+                src={aboutImg}
                 alt="About me profile"
                 className="w-full h-full object-cover"
                 loading="eager"
