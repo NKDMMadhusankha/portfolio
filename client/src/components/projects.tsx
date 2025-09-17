@@ -85,6 +85,11 @@ const cardVariants = {
 export function Projects() {
 	const { theme } = useTheme();
 	const [modalImage, setModalImage] = useState<string | null>(null);
+	const [showAll, setShowAll] = useState(false);
+	
+	// Show only first 4 projects initially, or all if showAll is true
+	const visibleProjects = showAll ? projects : projects.slice(0, 4);
+	const hasMoreProjects = projects.length > 4;
 	return (
 		<section
 			id="projects"
@@ -106,7 +111,7 @@ export function Projects() {
 				</motion.h2>
 
 				<div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
-					{projects.map((project, index) => (
+					{visibleProjects.map((project, index) => (
 						<motion.div
 							key={project.title}
 							variants={cardVariants}
@@ -235,6 +240,28 @@ export function Projects() {
 						</motion.div>
 					))}
 				</div>
+
+				{/* Load More Button */}
+				{hasMoreProjects && (
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6, delay: 0.3 }}
+						viewport={{ once: true }}
+						className="flex justify-center mt-12"
+					>
+						<Button
+							onClick={() => setShowAll(!showAll)}
+							className={`${
+								theme === "dark"
+									? "bg-white text-black hover:bg-gray-200"
+									: "bg-black text-white hover:bg-gray-800"
+							} px-8 py-3 text-base font-semibold transition-all duration-300 transform hover:scale-105`}
+						>
+							{showAll ? "Show Less" : "Load More Projects"}
+						</Button>
+					</motion.div>
+				)}
 			</div>
 
 			{modalImage && (
