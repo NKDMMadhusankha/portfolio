@@ -56,7 +56,7 @@ const projects = [
 		image: cleanbeeImg,
 		technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Material-UI"],
 		liveUrl: "https://cleaning-management-system-tau.vercel.app/",
-		githubUrl: "https://github.com/NKDMMadhusankha/cleaning-management-system.git",
+		githubUrl: "https://github.com/NKDMMadhusankha/cleaning-management-system",
 	},
 ];
 
