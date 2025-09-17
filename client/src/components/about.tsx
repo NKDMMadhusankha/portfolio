@@ -29,8 +29,8 @@ export function About() {
           >
             <p className={`about-mobile-center text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed font-['Roboto_Mono',monospace]`}>
               I'm a results-driven Software Engineer with a strong focus on delivering high-quality, 
-              user-centric solutions. Currently pursuing my BSc (Hons) in Software Engineering at 
-              NSBM Green University, I specialize in bridging the gap between development and design 
+              user-centric solutions. I hold a BSc (Hons) in Software Engineering (Second Class Upper Division) 
+              from NSBM Green University, I specialize in bridging the gap between development and design 
               with keen attention to user experience and interface usability.
             </p>
             <p className={`about-mobile-center text-lg ${theme === "dark" ? "text-muted-foreground" : "text-gray-700"} leading-relaxed font-['Roboto_Mono',monospace]`}>
