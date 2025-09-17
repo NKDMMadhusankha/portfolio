@@ -9,6 +9,7 @@ import harmonixImg from "@/../images/harmonix.png";
 import booknestImg from "@/../images/booknest.png";
 import greencartImg from "@/../images/greencart.png";
 import stylespaceImg from "@/../images/stylespace.png";
+import cleanbeeImg from "@/../images/cleanbee.png";
 
 const projects = [
 	{
@@ -47,6 +48,15 @@ const projects = [
 		technologies: ["React.js", "TensorFlow.js", "Three.js", "Node.js", "AR.js"],
 		liveUrl: "#",
 		githubUrl: "https://github.com/NKDMMadhusankha/HCI_project.git",
+	},
+	{
+		title: "CleanBee",
+		description:
+			"A full-stack cleaning service management platform that allows users to book services, manage schedules, and receive notifications, while providing admins with a secure portal to manage bookings, services, and users in real-time.",
+		image: cleanbeeImg,
+		technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Material-UI"],
+		liveUrl: "https://cleaning-management-system-tau.vercel.app/",
+		githubUrl: "https://github.com/NKDMMadhusankha/CleanBee.git",
 	},
 ];
 
