@@ -73,38 +73,7 @@ export function Skills() {
     startScrolling();
   }, [controls1, controls2, totalWidth]);
   
-  // Functions to pause/resume animation on hover
-  const pauseAnimation = () => {
-    controls1.stop();
-    controls2.stop();
-  };
-  
-  const resumeAnimation = () => {
-    // Just restart the animation from the beginning
-    controls1.start({
-      x: [0, -totalWidth],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 50, // Increased from 30 to 50 for slower animation
-          ease: "linear"
-        }
-      }
-    });
-    
-    controls2.start({
-      x: [-totalWidth, 0],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 45, // Increased from 25 to 45 for slower animation
-          ease: "linear"
-        }
-      }
-    });
-  };
+
   
   return (
     <section
@@ -124,8 +93,6 @@ export function Skills() {
         
         <div 
           className="w-full overflow-hidden py-8 relative"
-          onMouseEnter={pauseAnimation}
-          onMouseLeave={resumeAnimation}
         >
           {/* First row */}
           <motion.div 
@@ -140,9 +107,8 @@ export function Skills() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
                 >
-                  <Card className={`card-hover ${theme === "dark" ? "bg-transparent" : "bg-card"} border-border hover:border-accent-500 transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
+                  <Card className={`${theme === "dark" ? "bg-transparent" : "bg-card"} border-border transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
                     <CardContent className="p-3 text-center">
                       <skill.icon className={`text-2xl ${skill.color} mb-1 mx-auto`} />
                       <p className={`font-semibold text-xs ${theme === "light" ? "text-slate-800" : "text-foreground"}`}>{skill.name}</p>
@@ -166,9 +132,8 @@ export function Skills() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
                 >
-                  <Card className={`card-hover ${theme === "dark" ? "bg-transparent" : "bg-card"} border-border hover:border-accent-500 transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
+                  <Card className={`${theme === "dark" ? "bg-transparent" : "bg-card"} border-border transition-all duration-300 ${theme === "light" ? "shadow-md border-slate-300" : ""}`}>
                     <CardContent className="p-3 text-center">
                       <skill.icon className={`text-2xl ${skill.color} mb-1 mx-auto`} />
                       <p className={`font-semibold text-xs ${theme === "light" ? "text-slate-800" : "text-foreground"}`}>{skill.name}</p>
