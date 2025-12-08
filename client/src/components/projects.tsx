@@ -10,6 +10,7 @@ import booknestImg from "@/../images/booknest.png";
 import greencartImg from "@/../images/greencart.png";
 import stylespaceImg from "@/../images/stylespace.png";
 import cleanbeeImg from "@/../images/cleanbee.png";
+import trendoraImg from "@/../images/trendora.png";
 
 const projects = [
 	{
@@ -57,6 +58,15 @@ const projects = [
 		technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Material-UI"],
 		liveUrl: "https://cleaning-management-system-tau.vercel.app/",
 		githubUrl: "https://github.com/NKDMMadhusankha/cleaning-management-system",
+	},
+	{
+		title: "Trendora",
+		description:
+			"Modern e-commerce platform with a sleek interface for browsing and purchasing trending fashion items.",
+		image: trendoraImg,
+		technologies: ["React.js", "TypeScript", "Tailwind CSS", "Node.js"],
+		liveUrl: "#",
+		githubUrl: "https://github.com/NKDMMadhusankha/Trendora",
 	},
 ];
 
