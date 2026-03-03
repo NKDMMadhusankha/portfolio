@@ -5,6 +5,27 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useTheme } from "@/hooks/use-theme";
 
 const experiences = [
+
+      {
+    title: "Freelance Web Developer",
+    company: "",
+    location: "Sri Lanka",
+    duration: "2024 – 2025",
+    type: "Full-time",
+    description:
+      "Worked independently with international clients to design and develop custom websites and web applications.",
+    responsibilities: [
+      "Developed responsive and user friendly websites",
+      "Built AI powered systems including recommendation engines",
+      "Implemented machine learning based features for automation and data insights",
+      "Integrated third party APIs and cloud services",
+      "Managed deployment, maintenance, and direct client communication",
+    ],
+    // tech: ["React", "TypeScript", "Tailwind CSS", "Git"],
+    link: "",
+    current: false,
+  },
+
   {
     title: "Associate Full Stack Developer",
     company: "Avanza Labs",
@@ -23,6 +44,7 @@ const experiences = [
     link: "https://www.avanza.lk/",
     current: true,
   },
+  
 ];
 
 export function Experience() {
@@ -89,10 +111,14 @@ export function Experience() {
                 {/* Timeline dot */}
                 <div
                   className={`absolute left-6 md:left-1/2 top-6 w-5 h-5 rounded-full z-10 -translate-x-1/2 flex items-center justify-center ${
-                    theme === "dark"
-                      ? "bg-gray-500 border-4 border-gray-900"
-                      : "bg-gray-600 border-4 border-white"
-                  } ${exp.current ? "ring-2 ring-offset-2 ring-gray-400" : ""}`}
+                    exp.current
+                      ? theme === "dark"
+                        ? "bg-green-500 border-4 border-gray-900 ring-2 ring-offset-2 ring-green-400"
+                        : "bg-green-500 border-4 border-white ring-2 ring-offset-2 ring-green-400"
+                      : theme === "dark"
+                        ? "bg-red-500 border-4 border-gray-900"
+                        : "bg-red-500 border-4 border-white"
+                  }`}
                 >
                   {exp.current && (
                     <span className="absolute w-2.5 h-2.5 rounded-full bg-green-400 animate-ping opacity-75" />
